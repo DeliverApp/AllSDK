@@ -70,9 +70,50 @@ Add the dependency with full knowledge of the facts.
 ## Step 4: How to use it
 
 Deliver Android SDK provide two initialize methods you could use in your Android Application.
-First, Find your apiKey on https://deliverapp.io/store/app/:appId/details (TODO).
+First, Find your apiKey (Application ID) on https://store.deliverapp.io/settings/apps.
 
-### Initialization
+# Using DeliverApp Android SDK via manual installation
+
+## Step 1: Download aar file
+
+On Github packages :
+https://github.com/DeliverApp/AllSDK/packages/2489644
+
+And put it in libs folder for exemple.
+
+## Step 2: Add the Library Dependency (depending your pricing plan)
+
+Don't forget to add all dependencies needed by our SDK.
+
+```kotlin
+// build.gradle.kts
+
+dependencies {
+    implementation(fileTree(mapOf("dir" to "../libs", "include" to listOf("*.aar"))))
+    implementation("androidx.core:core-ktx:1.16.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+    implementation("androidx.camera:camera-camera2:1.4.2")
+    implementation("androidx.camera:camera-lifecycle:1.4.2")
+    implementation("androidx.camera:camera-view:1.4.2")
+    implementation("com.google.mlkit:barcode-scanning:17.3.0")
+    implementation("io.coil-kt:coil:2.7.0")
+    implementation(platform("androidx.compose:compose-bom:2025.04.01"))
+    implementation("androidx.compose.runtime:runtime-livedata:1.8.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.6")
+    implementation("io.insert-koin:koin-androidx-compose-navigation:3.5.6")
+    implementation("com.jakewharton.timber:timber:5.0.1")
+}
+```
+
+# Initialization
 
 You can just init the SDK with your app apiKey.
 
@@ -89,6 +130,6 @@ To unlock this one, you have to use our okhttp3 interceptor.
 your_okhttp3_builder.addNetworkInterceptor(DeliverHTTPInterceptor()).build()
 ```
 
-### And that's it ! Start using magic
+# And that's it ! Start using magic
 
 Thank you for choosing Deliver !
